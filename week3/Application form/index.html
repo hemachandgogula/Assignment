@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/cal.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h3 class='text-center'>Employee ID Application Form</h3>
+    <!-- <form>
+        <div class="input-group">
+            <label for="FirstName">FirstName</label>
+            <input type="text" class="FirstName">
+            <span class="spans-for-errors" id="errorforFirstName">Please Enter your Preferred name as FirstName</span>
+        </div>
+        <div class="input-group">
+            <label for="FullName">FullName</label>
+            <input type="text" class="FullName"/>
+            <span class="spans-for-errors" id="errorforFullName">Please Enter your FullName</span>
+        <input type="button" onclick="addDetails()" value="submit">
+        </div>
+    </form> -->
+    <form id='forms'>
+        <fieldset>
+            <legend >Virtusa Polaris</legend>
+        <div class="row">
+            <div class="col">
+                <label for="FirstName">FirstName</label>
+                <input type="text" id="FirstName" class="form-control" placeholder="First name">
+            </div>
+            <br>
+            <div class="col">
+                <label for="FullName">FullName</label>
+                <input type="text" id="FullName" class="form-control" placeholder="Last name">
+            </div>
+            <div class="col">
+                <br>
+                <label for="Designation">Designation</label>
+                <input type="text" id="designation" class="form-control" placeholder="Designation">
+            </div>
+            <div class="col">
+                <br>
+                <label for="Employee_Code">Employee code</label>
+                <input type="text" id="employeecode" class="form-control" placeholder="Employee code">
+            </div>
+            <div class="col">
+                <br>
+                <label for="Blood-group">Blood-group</label>
+                <input type="text" id="bloodgroup"class="form-control" placeholder="Blood group">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="inputAdress2">Reason for Issue</label>
+                <select id ="reason"class="form-control">
+                    <option value="New Employee">New Employee</option>
+                    <option value="Lost">Lost</option>
+                    <option value="Defaced">Defaced</option>
+                    <option value="Conversion">Conversion</option>
+                    <option value="DesignationChange">Designation Change</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="Date of Employement">Date of Employement</label>
+                <input type="text" id="date" class="form-control" placeholder="dd/mm/yyyy">
+            </div>
+            <br>
+
+            <div class="col">
+                <label for="Email_id">Email-id</label>
+                <input type="text" id="Email" class="form-control" placeholder="xyz@gmail.com">
+            </div>
+            <br>
+            <div class="col">
+                <label for="Emp_mbl_no">Employee mobile no.</label>
+                <input type="text" id="emp_mobile" class="form-control" placeholder="1234567890">
+            </div>
+            <br>
+            <div class="col">
+                <label for="Emergency_mbl_no    ">Emergency contact number:</label>
+                <input type="text" id="Emergency_mbl_no" class="form-control" placeholder="1234567890">
+            </div>
+            <br>
+            <!-- <div class="form-row align-items-center">
+            <div class="col-sm-3 my-1">
+                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Email">
+                  </div>
+                  <div class="col-sm-3 my-1">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" class="form-control" placeholder="Username"> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <input type="button" class="btn btn-success" id="submit" onclick="addDetails()" value="submit">
+        </div>
+    </fieldset>
+    </form>
+</body>
+
+</html>
