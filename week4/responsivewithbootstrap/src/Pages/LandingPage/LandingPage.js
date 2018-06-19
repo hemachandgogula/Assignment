@@ -19,7 +19,7 @@ class LandingPage extends React.Component {
             {
                 name: 'JS',
                 description: 'aaaa',
-                imgUrl: '/html.png'
+                imgUrl: '/js.png'
             },
             {
                 name: 'React',
