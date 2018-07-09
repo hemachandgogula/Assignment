@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import './button.css';
 export default class Button extends Component{
         constructor(props)
         {
@@ -14,7 +15,7 @@ export default class Button extends Component{
     render()
         {
             return(
-                <input type="button" value={this.state.btn} onClick={this.props.handlebtn} />
+                <input id="button" type="button" value={this.state.btn} onClick={this.props.handlebtn} />
             );
         }
 }

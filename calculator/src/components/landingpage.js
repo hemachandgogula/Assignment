@@ -1,78 +1,129 @@
 import React, { Component } from 'react';
-// import './landingpage.css';
+import './main.css';
 import Buttonpanel from './Buttonpanel';
 import Display from './Display';
 export default class Landingpage extends Component {
     constructor(state) {
-        var result = 0;
         super(state);
         this.state = {
             fields: {
                 total: 0,
-                next: '',
+                next: 0,
                 operator: ''
             }
         }
-        this.change = this.change.bind(this);
         this.calculate = this.calculate.bind(this);
         this.handleevent = this.handleevent.bind(this);
     }
-    change(e) {
-        var t = e.target.value;
-        var next=this.state.fields.next;
-        var operator=this.state.fields.operator;
+    calculate() {
+        var total = parseInt(this.state.fields.total);
+        var next = parseInt(this.state.fields.next);
+        var operator = this.state.fields.operator;
+        if (operator === '+') {
+            total = parseInt(total + next);
+        }
+        if (operator === '%') {
+            total = parseInt(total % next);
+        }
+        if (operator === '/') {
+            total = parseInt(total / next);
+        }
+        if (operator === '-') {
+            total = parseInt(total - next);
+        }
+        if (operator === '*') {
+            total = parseInt(total * next);
+        }
+        next = 0;
         this.setState({
             fields: {
-                total:t,
-                    next: next,
-                    operator:operator
+                total: total,
+                operator: operator,
+                next: next
             }
         });
-        console.log(this.state.fields)
-    }
-    calculate() {
-        var fields = []
-        fields["total"] = this.state.fields["total"];
-        fields["next"] = this.state.fields["next"];
-        fields["operator"] = this.state.fields["operator"];
-        if (fields["operator"] === '+') {
-            fields["total"] += fields["next"];
-            this.result = parseInt(fields["total"]);
-        }
-        if (fields["operator"] === '-') {
-            fields["total"] -= fields["next"];
-        }
-        if (fields["operator"] === '*') {
-            fields["total"] *= fields["next"];
-        }
-        this.setState({
-            fields: fields
-        });
-        console.log(this.result + "fields");
-        // console.log(fields["total"]);
-        // console.log(fields["next"]);
         console.log(this.state.fields);
     }
     handleevent(e) {
         var val = e.target.value;
-        var total=this.state.fields.total;
-        var operator=this.state.fields.operator;
-        if (!isNaN(val)) {
+        var total = this.state.fields.total;
+        var nex = this.state.fields.next;
+        var operator = this.state.fields.operator;
+        if (val === 'AC') {
+            console.log("here we go")
+            total = 0;
+            operator = '';
+            nex = 0;
             this.setState({
                 fields: {
-                    total:total,
-                    next: val,
-                    operator:operator
+                    total: total,
+                    operator: operator,
+                    next: nex
+                }
+            })
+        }
+        else if (val === '+/-') {
+            if (total) {
+                total = -(total);
+            }
+            if (nex) {
+                nex = -(nex);
+            }
+            this.setState({
+                fields: {
+                    total: total,
+                    operator: operator,
+                    next: nex
+                }
+            })
+        }
+        else if (val === '.') {
+            total += val;
+            nex += val;
+            this.setState({
+                fields: {
+                    total: total,
+                    operator: operator,
+                    next: nex
+                }
+            })
+        }
+        else if (val >= 0 && val <= 9) {
+            operator
+            if (!operator) {
+                if (total) {
+                    total += val;
+                    if (nex)
+                        nex += val;
+                    else
+                        nex = val;
+                }
+                else {
+                    total = val;
+                    nex = total;
+                }
+            }
+            else {
+                if (nex)
+                    nex += val;
+                else
+                    nex = val;
+            }
+            this.setState({
+                fields: {
+                    total: total,
+                    next: nex,
+                    operator: operator
                 }
             })
         }
         else {
-            var tot=this.state.fields.total;
+            nex = 0;
             this.setState({
                 fields: {
-                    total:tot,
+                    total: total,
                     operator: val,
-                    next:tot
+                    next: nex
                 }
             })
         }
@@ -80,8 +131,8 @@ export default class Landingpage extends Component {
     }
     render() {
         return (
-            <div>
-                <Display fields={this.state.fields} change={this.change}></Display>
+            <div id="container">
+                <Display value={this.state.fields.next || this.state.fields.total || "0"} fields={this.state.fields} ></Display>
                 <Buttonpanel handleevent={this.handleevent} fields={this.state.fields} calculate={this.calculate}></Buttonpanel>
             </div>
 

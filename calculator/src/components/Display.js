@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './display.css'
 export default class Display extends Component {
     constructor(props) {
         super(props);
@@ -7,7 +8,7 @@ export default class Display extends Component {
    
     render() {
         return (
-            <input  value={this.props.value} type="text" onChange={this.props.change} />
+            <input id="display"  value={this.props.value} type="text"/>
         );
     }
 }
